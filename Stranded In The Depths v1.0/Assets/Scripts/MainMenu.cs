@@ -17,16 +17,30 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Music.instance.RunDelete();
-        Music05.instance.RunDelete();
+        if (Music.instance != null)
+        {
+            Music.instance.RunDelete();
+        }
+
+        if (Music05.instance != null)
+        {
+            Music05.instance.RunDelete();
+        }
     }
 
     public void StartGame()
     {
         SceneManager.LoadScene(startScene);
         PlayerPrefs.DeleteAll();
-        Music.instance.RunDelete();
-        Music05.instance.RunDelete();
+        if (Music.instance != null)
+        {
+            Music.instance.RunDelete();
+        }
+
+        if (Music05.instance != null)
+        {
+            Music05.instance.RunDelete();
+        }
     }
 
     public void QuitGame()

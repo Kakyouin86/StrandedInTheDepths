@@ -24,6 +24,7 @@ public class CollisionHandler : MonoBehaviour
     public float actualScoreLevel02, actualScoreLevel03, actualScoreLevel04, actualScoreLevel05, actualScoreLevel06, actualScoreLevel07, actualScoreLevel08, actualScoreLevel09, actualScoreLevel10;
     public Text collisionsText;
     public float collisions;
+    public string sceneName;
     //Ernesto
 
 
@@ -38,53 +39,57 @@ public class CollisionHandler : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         collisions = 0.0f;
         PlayerPrefLoadCrashes();
+        sceneName = SceneManager.GetActiveScene().name;
+        Debug.Log(sceneName);
     }
 
     public void Update()
     {
-        scoreLevel01.text = PlayerPrefs.GetFloat("Level 01", Timer.instance.timeInLevel).ToString("f2");
-        oldScoreLevel01 = PlayerPrefs.GetFloat("Level 01", Timer.instance.timeInLevel);
-        
-        scoreLevel02.text = actualScoreLevel02.ToString("f2");
-        oldScoreLevel02 = PlayerPrefs.GetFloat("Level 02", Timer.instance.timeInLevel);
-        actualScoreLevel02 = oldScoreLevel02 - oldScoreLevel01;
-        
-        scoreLevel03.text = actualScoreLevel03.ToString("f2");
-        oldScoreLevel03 = PlayerPrefs.GetFloat("Level 03", Timer.instance.timeInLevel);
-        actualScoreLevel03 = oldScoreLevel03 - oldScoreLevel02;
+        if (PlayerPrefs.HasKey("Level 01") && sceneName == "Final Score")
+        {
+            scoreLevel01.text = PlayerPrefs.GetFloat("Level 01", Timer.instance.timeInLevel).ToString("f2");
+            oldScoreLevel01 = PlayerPrefs.GetFloat("Level 01", Timer.instance.timeInLevel);
 
-        scoreLevel04.text = actualScoreLevel04.ToString("f2");
-        oldScoreLevel04 = PlayerPrefs.GetFloat("Level 04", Timer.instance.timeInLevel);
-        actualScoreLevel04 = oldScoreLevel04 - oldScoreLevel03;
+            scoreLevel02.text = actualScoreLevel02.ToString("f2");
+            oldScoreLevel02 = PlayerPrefs.GetFloat("Level 02", Timer.instance.timeInLevel);
+            actualScoreLevel02 = oldScoreLevel02 - oldScoreLevel01;
 
-        scoreLevel05.text = actualScoreLevel05.ToString("f2");
-        oldScoreLevel05 = PlayerPrefs.GetFloat("Level 05", Timer.instance.timeInLevel);
-        actualScoreLevel05 = oldScoreLevel05 - oldScoreLevel04;
+            scoreLevel03.text = actualScoreLevel03.ToString("f2");
+            oldScoreLevel03 = PlayerPrefs.GetFloat("Level 03", Timer.instance.timeInLevel);
+            actualScoreLevel03 = oldScoreLevel03 - oldScoreLevel02;
 
-        scoreLevel06.text = actualScoreLevel06.ToString("f2");
-        oldScoreLevel06 = PlayerPrefs.GetFloat("Level 06", Timer.instance.timeInLevel);
-        actualScoreLevel06 = oldScoreLevel06 - oldScoreLevel05;
+            scoreLevel04.text = actualScoreLevel04.ToString("f2");
+            oldScoreLevel04 = PlayerPrefs.GetFloat("Level 04", Timer.instance.timeInLevel);
+            actualScoreLevel04 = oldScoreLevel04 - oldScoreLevel03;
 
-        scoreLevel07.text = actualScoreLevel07.ToString("f2");
-        oldScoreLevel07 = PlayerPrefs.GetFloat("Level 07", Timer.instance.timeInLevel);
-        actualScoreLevel07 = oldScoreLevel07 - oldScoreLevel06;
+            scoreLevel05.text = actualScoreLevel05.ToString("f2");
+            oldScoreLevel05 = PlayerPrefs.GetFloat("Level 05", Timer.instance.timeInLevel);
+            actualScoreLevel05 = oldScoreLevel05 - oldScoreLevel04;
 
-        //scoreLevel08.text = actualScoreLevel08.ToString("f2");
-        //oldScoreLevel08 = PlayerPrefs.GetFloat("Level 08", Timer.instance.timeInLevel);
-        //actualScoreLevel08 = oldScoreLevel08 - oldScoreLevel07;
+            scoreLevel06.text = actualScoreLevel06.ToString("f2");
+            oldScoreLevel06 = PlayerPrefs.GetFloat("Level 06", Timer.instance.timeInLevel);
+            actualScoreLevel06 = oldScoreLevel06 - oldScoreLevel05;
 
-        //scoreLevel09.text = actualScoreLevel09.ToString("f2");
-        //oldScoreLevel09 = PlayerPrefs.GetFloat("Level 09", Timer.instance.timeInLevel);
-        //actualScoreLevel09 = oldScoreLevel09 - oldScoreLevel08;
+            scoreLevel07.text = actualScoreLevel07.ToString("f2");
+            oldScoreLevel07 = PlayerPrefs.GetFloat("Level 07", Timer.instance.timeInLevel);
+            actualScoreLevel07 = oldScoreLevel07 - oldScoreLevel06;
 
-        //scoreLevel10.text = actualScoreLevel10.ToString("f2");
-        //oldScoreLevel10 = PlayerPrefs.GetFloat("Level 10", Timer.instance.timeInLevel);
-        //actualScoreLevel10 = oldScoreLevel10 - oldScoreLevel09;
+            //scoreLevel08.text = actualScoreLevel08.ToString("f2");
+            //oldScoreLevel08 = PlayerPrefs.GetFloat("Level 08", Timer.instance.timeInLevel);
+            //actualScoreLevel08 = oldScoreLevel08 - oldScoreLevel07;
 
-        totalTime.text = PlayerPrefs.GetFloat("Level 07", Timer.instance.timeInLevel).ToString("f2") + " total time";
+            //scoreLevel09.text = actualScoreLevel09.ToString("f2");
+            //oldScoreLevel09 = PlayerPrefs.GetFloat("Level 09", Timer.instance.timeInLevel);
+            //actualScoreLevel09 = oldScoreLevel09 - oldScoreLevel08;
 
-        collisionsText.text = PlayerPrefs.GetFloat("crash", Timer.instance.timeInLevel).ToString("f0") + " deaths";
+            //scoreLevel10.text = actualScoreLevel10.ToString("f2");
+            //oldScoreLevel10 = PlayerPrefs.GetFloat("Level 10", Timer.instance.timeInLevel);
+            //actualScoreLevel10 = oldScoreLevel10 - oldScoreLevel09;
 
+            totalTime.text = PlayerPrefs.GetFloat("Level 07", Timer.instance.timeInLevel).ToString("f2") + " total time";
+
+            collisionsText.text = PlayerPrefs.GetFloat("crash", Timer.instance.timeInLevel).ToString("f0") + " deaths";
+        }
     }
 
     void RespondToDebugKeys()

@@ -742,7 +742,6 @@ GameObject:
   - component: {fileID: 1549891673}
   - component: {fileID: 1549891672}
   - component: {fileID: 1549891671}
-  - component: {fileID: 1549891670}
   - component: {fileID: 1549891676}
   - component: {fileID: 1549891675}
   m_Layer: 5
@@ -752,56 +751,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1549891670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549891669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520b16c2b1f41eb4096b8145723b2589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transitionLevelDelays: 2
-  success: {fileID: 0}
-  crash: {fileID: 0}
-  successParticles: {fileID: 0}
-  crashParticles: {fileID: 0}
-  isTransitioning: 0
-  totalTime: {fileID: 0}
-  scoreLevel01: {fileID: 0}
-  scoreLevel02: {fileID: 0}
-  scoreLevel03: {fileID: 0}
-  scoreLevel04: {fileID: 0}
-  scoreLevel05: {fileID: 0}
-  scoreLevel06: {fileID: 0}
-  scoreLevel07: {fileID: 0}
-  scoreLevel08: {fileID: 0}
-  scoreLevel09: {fileID: 0}
-  scoreLevel10: {fileID: 0}
-  oldScoreLevel01: 0
-  oldScoreLevel02: 0
-  oldScoreLevel03: 0
-  oldScoreLevel04: 0
-  oldScoreLevel05: 0
-  oldScoreLevel06: 0
-  oldScoreLevel07: 0
-  oldScoreLevel08: 0
-  oldScoreLevel09: 0
-  oldScoreLevel10: 0
-  actualScoreLevel02: 0
-  actualScoreLevel03: 0
-  actualScoreLevel04: 0
-  actualScoreLevel05: 0
-  actualScoreLevel06: 0
-  actualScoreLevel07: 0
-  actualScoreLevel08: 0
-  actualScoreLevel09: 0
-  actualScoreLevel10: 0
-  collisionsText: {fileID: 0}
-  collisions: 0
 --- !u!114 &1549891671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +785,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
